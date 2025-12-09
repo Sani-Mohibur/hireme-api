@@ -31,7 +31,7 @@ export const protect = async (
     req.user = currentUser;
     next();
   } catch (error) {
-    res.status(401).json({ message: "Unauthorized, token failed" });
+    res.status(401).json({ message: "Unauthorized, token failed", error });
   }
 };
 
