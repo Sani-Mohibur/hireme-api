@@ -156,7 +156,7 @@ The system consists of three main entities: **USER**, **JOB**, and **APPLICATION
 ### ERD Image
 
 <p align="center">
-  <img src="docs/erd-dark.png" alt="ERD" width="400" height="800"/>
+  <img src="docs/erd-white.png" alt="ERD" width="400" height="800"/>
 </p>
 
 -----
