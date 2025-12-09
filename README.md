@@ -48,7 +48,6 @@ Rename `.env.example` to `.env` or create a new one:
 cp .env.example .env
 ```
 
-
 ### 4\. Configure Environment Variables
 
 Create a `.env` file in the root directory and add the following:
@@ -75,7 +74,7 @@ npm run build
 npm start
 ```
 
-The server will start on `http://localhost:5000`.
+***Note:** The server will automatically start on `http://localhost:5000`.*
 
 -----
 
@@ -138,22 +137,35 @@ Since real payment gateway integration requires verified merchant accounts, this
 
 ## 📂 Entity Relationship Diagram (ERD)
 
-*(Place your ERD image in the repo and link it here, or use the description below)*
+The system consists of three main entities: **USER**, **JOB**, and **APPLICATION**.  
 
-  * **Users** have roles (Admin, Employee, Job Seeker).
-  * **Employees** create **Jobs** (One-to-Many).
-  * **Job Seekers** create **Applications** linked to **Jobs** (Many-to-Many via Application entity).
+- **USER**: Represents Admins, Employees (Recruiters), and Job Seekers.  
+- **JOB**: Represents jobs posted by Employees (Recruiters).  
+- **APPLICATION**: Represents job applications submitted by Job Seekers, including resume uploads and payment details.
+
+### Relationships
+
+- **USER → JOB**: One-to-Many (a Recruiter can post multiple jobs).  
+- **USER → APPLICATION**: One-to-Many (a Job Seeker can submit multiple applications).  
+- **JOB → APPLICATION**: One-to-Many (a job can receive multiple applications).
+
+### ERD Image
+
+<p align="center">
+  <img src="docs/erd-dark.png" alt="ERD" width="400" height="800"/>
+</p>
 
 -----
 
-## 🧪 Testing
+## 🧪 Testing & API Documentation
 
-You can import the provided Postman Collection (if available) or test using the endpoints above.
+You can verify all endpoints using the published Postman Documentation.
 
-**Test Users (Create these via Register endpoint first):**
+**🔗 [View Postman Documentation](https://documenter.getpostman.com/view/46560325/2sB3dQupTi)**
 
-1.  **Admin:** `admin@example.com` (Role: ADMIN)
-2.  **Recruiter:** `recruiter@company.com` (Role: EMPLOYEE)
-3.  **Seeker:** `seeker@email.com` (Role: JOB\_SEEKER)
-
------
+### How to Test Locally
+1.  Ensure the server is running (`npm run dev`).
+2.  Open the Postman link above.
+3.  **Register** users with different roles (`ADMIN`, `EMPLOYEE`, `JOB_SEEKER`) to test the specific permissions for each route.
+   
+***Note:** When testing the **Apply for Job** endpoint as a *Seeker*, the system will automatically simulate a successful payment and generate a transaction ID.*
