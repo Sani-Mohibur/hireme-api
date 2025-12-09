@@ -30,8 +30,8 @@ A robust backend system for **HireMe**, a job portal where companies can post jo
 ### 1\. Clone the repository
 
 ```bash
-git clone https://github.com/Sani-Mohibur/hireme-backend.git
-cd hireme-backend
+git clone https://github.com/Sani-Mohibur/hireme-api.git
+cd hireme-api
 ```
 
 ### 2\. Install Dependencies
@@ -40,17 +40,15 @@ cd hireme-backend
 npm install
 ```
 
-### 3\. Configure Environment Variables
+### 3. Configure Environment Variables
 
-Rename `.env.example` to `.env` or create a new one:
+Rename `.env.example` to `.env`:
 
 ```bash
 cp .env.example .env
 ```
 
-### 4\. Configure Environment Variables
-
-Create a `.env` file in the root directory and add the following:
+Or create a new `.env` file manually and add:
 
 ```env
 PORT=5000
@@ -59,7 +57,7 @@ JWT_SECRET=your_super_secret_key
 JWT_EXPIRES_IN=1d
 ```
 
-### 5\. Run the Server
+### 4\. Run the Server
 
 **Development Mode:**
 
@@ -74,9 +72,15 @@ npm run build
 npm start
 ```
 
-***Note:** The server will automatically start on `http://localhost:5000`.*
-
 -----
+
+## 🌐 Live Demo
+
+Check out the backend live demo deployed on Render:
+
+[https://hireme-backend-t817.onrender.com/](https://hireme-backend-t817.onrender.com/)
+
+---
 
 ## 📖 API Documentation
 
@@ -168,4 +172,4 @@ You can verify all endpoints using the published Postman Documentation.
 2.  Open the Postman link above.
 3.  **Register** users with different roles (`ADMIN`, `EMPLOYEE`, `JOB_SEEKER`) to test the specific permissions for each route.
    
-***Note:** When testing the **Apply for Job** endpoint as a *Seeker*, the system will automatically simulate a successful payment and generate a transaction ID.*
+***Note:** When testing the **Apply for Job** endpoint as a **Job Seeker**, the system will automatically simulate a successful payment and generate a transaction ID.*
