@@ -28,7 +28,10 @@ app.use("/api/admin", adminRoutes);
 
 // Health Check
 app.get("/", (req: Request, res: Response) => {
-  res.send("HireMe API is running successfully 🚀");
+  res.send(`
+    <h1>HireMe API is running successfully 🚀</h1>
+    <p>View the full documentation here: <a href="https://documenter.getpostman.com/view/46560325/2sB3dQupTi" target="_blank">API Docs</a></p>
+  `);
 });
 
 // 404 Handler
